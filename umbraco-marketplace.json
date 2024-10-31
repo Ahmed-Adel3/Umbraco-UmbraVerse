@@ -1,0 +1,110 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AlternateCategory": "Developer Tools",
+  "AlternatePackageNames": [ "UmbraVerse" ],
+  "AuthorDetails": {
+    "Name": "Lee Kelleher",
+    "Description": "Lee is a long time Umbraco community collaborator, he now works for Umbraco HQ as a Staff Engineer on the CMS team within the Product and Engineering department.",
+    "Url": "https://leekelleher.com/umbraco/",
+    "ImageUrl": "https://github.com/leekelleher.png",
+    "Contributors": [],
+    "SyncContributorsFromRepository": false
+  },
+  "Category": "Editor Tools",
+  "Description": "Contentment is a collection of components that can enhance the Umbraco CMS editorial experience.",
+  "DiscussionForumUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/discussions",
+  "DocumentationUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/tree/develop/docs",
+  "IssueTrackerUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/issues",
+  "LicenseTypes": [ "Free" ],
+  "LookingForContributors": true,
+  "LookingForMaintainer": false,
+  "PackageType": "Package",
+  "PackagesByAuthor": [],
+  "RelatedPackages": [],
+  "Screenshots": [
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/1-%20Labeled%20Radio%20Button%20List%20-%20Prevalue%20editor.png",
+      "Caption": "Labeled Radio Button List - Prevalue editor"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/2-%20Labeled%20Radio%20Button%20List%20-%20In%20Page.png",
+      "Caption": "Labeled Radio Button List - In Page"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/3-%20Labeled%20Radio%20Button%20List%20-%20Delivery%20API.png",
+      "Caption": "Labeled Radio Button List - Delivery API"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/4-%20Labeled%20Checkbox%20List%20-%20Prevalue%20editor.png",
+      "Caption": "Labeled Checkbox List - Prevalue editor"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/5-%20Labeled%20CheckBox%20List%20-%20In%20Page.png",
+      "Caption": "Labeled CheckBox List - In Page"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/6-%20Labeled%20Checkbox%20List%20-%20Delivery%20API.png",
+      "Caption": "Labeled Checkbox List - Delivery API"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/7-%20Labeled%20DropDown%20Flexible%20-%20Prevalue%20editor.png",
+      "Caption": "Labeled DropDown Flexible - Prevalue editor"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/8-%20Labeled%20DropDown%20Flexible%20-%20Multi%20Select%20-%20In%20Page.png",
+      "Caption": "Labeled DropDown Flexible - Multi Select - In Page"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/9-%20Labeled%20DropDown%20Flexible%20-%20Multi%20Select%20-%20Delivery%20API.png",
+      "Caption": "Labeled DropDown Flexible - Multi Select - Delivery API"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/10-%20Labeled%20DropDown%20Flexible%20-%20Single%20Select%20-%20In%20Page.png",
+      "Caption": "Labeled DropDown Flexible - Single Select - In Page"
+    },
+    {
+      "ImageUrl": "https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/11-%20Labeled%20DropDown%20Flexible%20-%20Single%20Select%20-%20Delivery%20API.png",
+      "Caption": "Labeled DropDown Flexible - Single Select - Delivery API"
+    }
+  ],
+  "Tags": [
+    "backoffice",
+    "block editor",
+    "droplist",
+    "dropdown",
+    "radiobutton",
+    "label",
+    "kay value",
+    "checkbox",
+    "editorial experience",
+    "render macro",
+    "property editor",
+    "textbox list",
+    "multivalue"
+  ],
+  "Title": "UmbraVerse",
+  "VersionDependencyMode": "Default",
+  "VersionSpecificPackageIds": [
+    {
+      "UmbracoMajorVersion": 8,
+      "PackageId": ""
+    },
+    {
+      "UmbracoMajorVersion": 9,
+      "PackageId": ""
+    },
+    {
+      "UmbracoMajorVersion": 10,
+      "PackageId": ""
+    },
+    {
+      "UmbracoMajorVersion": 11,
+      "PackageId": ""
+    },
+    {
+      "UmbracoMajorVersion": 12,
+      "PackageId": ""
+    }
+  ],
+  "VideoUrl": ""
+}
