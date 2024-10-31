@@ -53,6 +53,10 @@ A flexible dropdown that supports both single and multiple selections. Each opti
 
 ## Installation
 
-You can install this package via NuGet:
-```bash
-dotnet add package Umbraco.UmbraVerse
+##### NuGet package repository
+
+To [install from NuGet](https://www.nuget.org/packages/), you can run the following command from the `dotnet` CLI:
+
+    dotnet add package Umbraco.Community.UmbraVerse
+
+> Please note, that the [`Umbraco.Community.UmbraVerse`](https://www.nuget.org/packages/Umbraco.Community.UmbraVerse) NuGet package is the main package for ongoing releases.
