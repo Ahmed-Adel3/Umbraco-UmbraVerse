@@ -6,12 +6,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="App_Plugins\UmbraVerse\prevalueeditors\labeledMultivalue\labeledmultivalue.html" />
+    <Content Include="App_Plugins\UmbraVerse\propertyeditors\labeledDropDownFlexible\labeleddropdownflexible.html" />
+    <Content Include="App_Plugins\UmbraVerse\propertyeditors\labeledDropDownFlexible\package.manifest" />
     <Content Include="App_Plugins\UmbraVerse\propertyeditors\labeledCheckboxList\labeledcheckboxlist.html" />
     <Content Include="App_Plugins\UmbraVerse\propertyeditors\labeledCheckboxList\package.manifest" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Plugins\UmbraVerse\prevalueeditors\labeledMultivalue\labeledmultivalue.controller.js" />
     <None Include="App_Plugins\UmbraVerse\prevalueeditors\labeledMultivalue\package.manifest" />
+    <None Include="App_Plugins\UmbraVerse\propertyeditors\labeledDropDownFlexible\labeleddropdownflexible.controller.js" />
     <None Include="App_Plugins\UmbraVerse\propertyeditors\labeledCheckboxList\labeledcheckboxlist.controller.js" />
   </ItemGroup>
 

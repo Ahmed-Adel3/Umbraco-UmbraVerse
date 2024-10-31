@@ -1,18 +1,18 @@
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Serialization;
-using static UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEditor.LabeledMultiValueConfiguration;
+using UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledDropDownFlexibleEditor;
 
 namespace UmbraVerse.PropertyEditors.ValueConverters;
 
-public class LabeledCheckboxListValueConverter : PropertyValueConverterBase
+public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
 {
     private readonly IJsonSerializer _jsonSerializer;
 
-    public LabeledCheckboxListValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
+    public LabeledDropDownFlexibleValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
 
     public override bool IsConverter(IPublishedPropertyType propertyType)
-        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledCheckboxList");
+        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledDropDownFlexible");
 
     public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
         => typeof(IEnumerable<string>);
@@ -48,7 +48,22 @@ public class LabeledCheckboxListValueConverter : PropertyValueConverterBase
                 return Enumerable.Empty<string>();
             }
 
-            return _jsonSerializer.Deserialize<List<LabeledValueListItem>>(sourceString)?.Select(a => a.Value);
+            var config = propertyType.DataType.Configuration.TryConvertTo<LabeledDropDownFlexibleConfiguration>();
+            if(config.Success && config.Result != null)
+            {
+                if (config.Result.Multiple)
+                {
+                    return _jsonSerializer.Deserialize<string[]>(sourceString);
+                }
+                else
+                {
+                    return _jsonSerializer.Deserialize<string[]>(sourceString)?.FirstOrDefault();
+                }
+            }
+            else
+            {
+                return Enumerable.Empty<string>();
+            }
         }
         catch
         {
@@ -56,3 +71,4 @@ public class LabeledCheckboxListValueConverter : PropertyValueConverterBase
         }
     }
 }
+

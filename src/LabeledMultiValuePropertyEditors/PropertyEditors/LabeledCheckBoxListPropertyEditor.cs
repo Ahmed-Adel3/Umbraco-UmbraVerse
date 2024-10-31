@@ -16,7 +16,7 @@ namespace UmbraVerse.PropertyEditors
     public class LabeledCheckBoxListPropertyEditor : DataEditor
     {
         internal const string PropertyAlias = "UmbraVerse.PropertyEditors.LabeledCheckboxList";
-        internal const string DataEditorName = "Labeled Check Box List";
+        internal const string DataEditorName = "Labeled CheckBox List";
         internal const string DataEditorViewPath = "~/App_Plugins/UmbraVerse/propertyeditors/labeledCheckboxList/labeledcheckboxlist.html";
         internal const string DataEditorIcon = "icon-bulleted-list";
 

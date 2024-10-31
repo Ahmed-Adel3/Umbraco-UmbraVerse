@@ -1,4 +1,4 @@
-angular.module("umbraco").controller("Umbraco.PropertyEditors.CheckboxListController",
+angular.module("umbraco").controller("UmbraVerse.PropertyEditors.LabeledCheckboxListController",
   function ($scope, validationMessageService) {
 
     const vm = this;
