@@ -1,9 +1,10 @@
-<div style="display: flex; align-items: center; gap: 20px;">
-    <h1>Umbraco-UmbraVerse</h1>
-    <img src="https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/logo.png" alt="UmbraVerse Logo" width="100" />  
-</div>
+<img src="assets/img/logo.png" alt="Umbraco-UmbraVerse logo" title="Umbraco-UmbraVerse" height="130" align="right">
+
+## Umbraco-UmbraVerse
 
 A collection of enhanced Umbraco property editors that support separate labels and values, providing a better user experience and more flexible data storage.
+
+[![Mozilla Public License](https://img.shields.io/badge/MPL--2.0-orange?label=license)](https://opensource.org/licenses/MPL-2) [![Latest version](https://img.shields.io/nuget/v/Umbraco.Community.UmbraVerse?label=version)](https://marketplace.umbraco.com/package/umbraco.community.UmbraVerse) [![NuGet download count](https://img.shields.io/nuget/dt/Umbraco.Community.UmbraVerse?label=downloads)](https://www.nuget.org/packages/Umbraco.Community.UmbraVerse)
 
 ## Features
 
