@@ -5,14 +5,14 @@ using static UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEd
 
 namespace UmbraVerse.PropertyEditors.ValueConverters;
 
-public class LabeledRadioButtonListValueConverter : PropertyValueConverterBase
+public class LabeledCheckboxListValueConverter : PropertyValueConverterBase
 {
     private readonly IJsonSerializer _jsonSerializer;
 
-    public LabeledRadioButtonListValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
+    public LabeledCheckboxListValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
 
     public override bool IsConverter(IPublishedPropertyType propertyType)
-        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledRadioButtonListController");
+        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledCheckboxList");
 
     public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
         => typeof(IEnumerable<string>);
@@ -48,7 +48,7 @@ public class LabeledRadioButtonListValueConverter : PropertyValueConverterBase
                 return Enumerable.Empty<string>();
             }
 
-            return _jsonSerializer.Deserialize<List<LabeledValueListItem>>(sourceString)?.Select(a => a.Value).FirstOrDefault();
+            return _jsonSerializer.Deserialize<List<LabeledValueListItem>>(sourceString)?.Select(a => a.Value);
         }
         catch
         {
