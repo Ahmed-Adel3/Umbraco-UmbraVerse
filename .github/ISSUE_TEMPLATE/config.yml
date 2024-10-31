@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Features and ideas
+    url: https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/discussions/new?category=ideas
+    about: Suggest an idea for this project
+  - name: Umbraco Community forum
+    url: 
+    about: "For community (free) support questions, please use the Umbraco Community forum."
+  - name: "Find Me in"
+    url: https://www.linkedin.com/in/ahmedadel333/
+    about: "Checkout my Linkedin portfolio"\
+  - name: "Contact me"
+    url: ahmed.al.adl333@gmail.com
+    about: "My Personal E-mail"
