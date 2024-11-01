@@ -4,7 +4,10 @@
 
 A collection of enhanced Umbraco property editors that support separate labels and values, providing a better user experience and more flexible data storage.
 
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) [![Latest version](https://img.shields.io/nuget/v/Umbraco.Community.UmbraVerse?label=version)](https://marketplace.umbraco.com/package/umbraco.community.UmbraVerse) [![NuGet download count](https://img.shields.io/nuget/dt/Umbraco.Community.UmbraVerse?label=downloads)](https://www.nuget.org/packages/UmbraVerse)
+[![Platform](https://img.shields.io/badge/Umbraco-9.0+-%233544B1?style=flat&logo=umbraco)](https://umbraco.com/products/umbraco-cms/)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
+[![Latest version](https://img.shields.io/nuget/v/Umbraco.Community.UmbraVerse?label=version)](https://marketplace.umbraco.com/package/umbraco.community.UmbraVerse) 
+[![NuGet download count](https://img.shields.io/nuget/dt/Umbraco.Community.UmbraVerse?label=downloads)](https://www.nuget.org/packages/UmbraVerse)
 
 ## Features
 
@@ -56,7 +59,7 @@ A flexible dropdown that supports both single and multiple selections. Each opti
 
 ### NuGet package repository
 
-To [install from NuGet](https://www.nuget.org/packages/), you can run the following command from the `dotnet` CLI:
+To [install from NuGet](https://www.nuget.org/packages/Umbraco.Community.UmbraVerse), you can run the following command from the `dotnet` CLI:
 
 ```bash
 dotnet add package Umbraco.Community.UmbraVerse
