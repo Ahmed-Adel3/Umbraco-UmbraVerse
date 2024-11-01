@@ -9,12 +9,12 @@
   <PropertyGroup>
     <PackageId>UmbraVerse</PackageId>
     <Product>UmbraVerse</Product>
-    <Title>UmbraVerse</Title>
+    <Title>Umbraco.Community.UmbraVerse</Title>
     <Description>A collection of enhanced Umbraco property editors that support separate labels and values, providing a better user experience and more flexible data storage.</Description>
-    <PackageTags>umbraco plugin package</PackageTags>
-    <Copyright>Ahmed-Adel3</Copyright>
+    <PackageTags>umbraco plugin package property editor</PackageTags>
+    <Copyright>Ahmed-Adel</Copyright>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Ahmed-Adel3</Authors>
+    <Authors>Ahmed-Adel</Authors>
     <PackageProjectUrl>https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse</RepositoryUrl>
     <PackageReleaseNotes>First release with:
