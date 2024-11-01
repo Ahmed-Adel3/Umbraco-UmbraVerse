@@ -15,7 +15,9 @@ namespace UmbraVerse.PropertyEditors
         view: DataEditorViewPath,
         Icon = DataEditorIcon,
         Group = "UmbraVerse",
+#if NET6_0_OR_GREATER
         ValueEditorIsReusable = true,
+#endif
         ValueType = ValueTypes.String)]
     public class RadioButtonsPropertyEditor : DataEditor
     {
@@ -24,7 +26,10 @@ namespace UmbraVerse.PropertyEditors
         internal const string DataEditorViewPath = "~/App_Plugins/UmbraVerse/propertyeditors/labeledRadioButtonList/labeledradiobuttonlist.html";
         internal const string DataEditorIcon = "icon-target";
 
+
+#if NET6_0_OR_GREATER
         private readonly IEditorConfigurationParser _editorConfigurationParser;
+#endif
         private readonly IIOHelper _ioHelper;
         private readonly ILocalizedTextService _localizedTextService;
 
@@ -34,22 +39,31 @@ namespace UmbraVerse.PropertyEditors
         public RadioButtonsPropertyEditor(
             IDataValueEditorFactory dataValueEditorFactory,
             IIOHelper ioHelper,
-            ILocalizedTextService localizedTextService,
-            IEditorConfigurationParser editorConfigurationParser)
+            ILocalizedTextService localizedTextService
+#if NET6_0_OR_GREATER
+            , IEditorConfigurationParser editorConfigurationParser
+#endif
+            )
             : base(dataValueEditorFactory)
         {
             _ioHelper = ioHelper;
             _localizedTextService = localizedTextService;
+#if NET6_0_OR_GREATER
             _editorConfigurationParser = editorConfigurationParser;
             SupportsReadOnly = true;
+#endif
         }
 
-        /// <summary>
-        ///     Return a custom pre-value editor
-        /// </summary>
-        /// <returns></returns>
+#if NET5_0
+        protected override IConfigurationEditor CreateConfigurationEditor() =>
+            new LabeledMultiValueConfigurationEditor(_localizedTextService, _ioHelper);
+#endif
+
+#if NET6_0_OR_GREATER
+        /// <inheritdoc />
         protected override IConfigurationEditor CreateConfigurationEditor() =>
             new LabeledMultiValueConfigurationEditor(_localizedTextService, _ioHelper, _editorConfigurationParser);
+#endif
     }
 
 }

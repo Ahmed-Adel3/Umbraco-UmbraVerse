@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json.Linq;
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.PropertyEditors;
@@ -11,6 +13,18 @@ namespace UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledDropDownFlexibl
 {
     public class LabeledDropDownFlexibleConfigurationEditor : ConfigurationEditor<LabeledDropDownFlexibleConfiguration>
     {
+#if NET5_0
+        public LabeledDropDownFlexibleConfigurationEditor(ILocalizedTextService textService, IIOHelper ioHelper)
+    : base(ioHelper)
+        {
+            ConfigurationField items = Fields.First(x => x.Key == "items");
+
+            // customize the items field
+            items.Name = textService.Localize("editdatatype", "addPrevalue");
+            items.Validators.Add(new LabeledMultiValueUniqueValueValidator());
+        }
+#endif
+#if NET6_0_OR_GREATER
         public LabeledDropDownFlexibleConfigurationEditor(ILocalizedTextService textService, IIOHelper ioHelper, IEditorConfigurationParser editorConfigurationParser)
             : base(ioHelper, editorConfigurationParser)
         {
@@ -20,6 +34,7 @@ namespace UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledDropDownFlexibl
             items.Name = textService.Localize("editdatatype", "addPrevalue");
             items.Validators.Add(new LabeledMultiValueUniqueValueValidator());
         }
+#endif
 
         public override LabeledDropDownFlexibleConfiguration FromConfigurationEditor(
             IDictionary<string, object?>? editorValues,

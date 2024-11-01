@@ -1,3 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
@@ -11,7 +18,9 @@ namespace UmbraVerse.PropertyEditors
         view: DataEditorViewPath,
         Icon = DataEditorIcon,
         Group = "UmbraVerse",
-        ValueEditorIsReusable = true,
+#if NET6_0_OR_GREATER
+        ValueEditorIsReusable = true, 
+#endif
         ValueType = ValueTypes.String)]
     public class LabeledCheckBoxListPropertyEditor : DataEditor
     {
@@ -19,28 +28,43 @@ namespace UmbraVerse.PropertyEditors
         internal const string DataEditorName = "Labeled CheckBox List";
         internal const string DataEditorViewPath = "~/App_Plugins/UmbraVerse/propertyeditors/labeledCheckboxList/labeledcheckboxlist.html";
         internal const string DataEditorIcon = "icon-bulleted-list";
-
+#if NET6_0_OR_GREATER
         private readonly IEditorConfigurationParser _editorConfigurationParser;
+#endif
         private readonly IIOHelper _ioHelper;
         private readonly ILocalizedTextService _textService;
 
         public LabeledCheckBoxListPropertyEditor(
             IDataValueEditorFactory dataValueEditorFactory,
             ILocalizedTextService textService,
-            IIOHelper ioHelper,
-            IEditorConfigurationParser editorConfigurationParser)
+            IIOHelper ioHelper
+#if NET6_0_OR_GREATER
+            , IEditorConfigurationParser editorConfigurationParser
+#endif
+            )
             : base(dataValueEditorFactory)
         {
             _textService = textService;
             _ioHelper = ioHelper;
+#if NET6_0_OR_GREATER
             _editorConfigurationParser = editorConfigurationParser;
             SupportsReadOnly = true;
+#endif
         }
 
+#if NET7_0_OR_GREATER
         public override IPropertyIndexValueFactory PropertyIndexValueFactory { get; } = new NoopPropertyIndexValueFactory();
+#endif
 
+#if NET5_0
+        protected override IConfigurationEditor CreateConfigurationEditor() =>
+            new LabeledMultiValueConfigurationEditor(_textService, _ioHelper);
+#endif
+
+#if NET6_0_OR_GREATER
         /// <inheritdoc />
         protected override IConfigurationEditor CreateConfigurationEditor() =>
             new LabeledMultiValueConfigurationEditor(_textService, _ioHelper, _editorConfigurationParser);
+#endif
     }
 }

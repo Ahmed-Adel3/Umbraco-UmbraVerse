@@ -1,75 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Serialization;
 using Umbraco.Extensions;
 using UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledDropDownFlexibleEditor;
 
-namespace UmbraVerse.PropertyEditors.ValueConverters;
-
-public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
+namespace UmbraVerse.PropertyEditors.ValueConverters
 {
-    private readonly IJsonSerializer _jsonSerializer;
-
-    public LabeledDropDownFlexibleValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
-
-    public override bool IsConverter(IPublishedPropertyType propertyType)
-        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledDropDownFlexible");
-
-    public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
-        => typeof(IEnumerable<string>);
-
-    public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
-        => PropertyCacheLevel.Element;
-
-    public override bool? IsValue(object? value, PropertyValueLevel level)
+    public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
     {
-        switch (level)
-        {
-            case PropertyValueLevel.Source:
-                // the default implementation uses the old magic null & string comparisons,
-                // other implementations may be more clever, and/or test the final converted object values
-                return value != null && (!(value is string stringValue) || !string.IsNullOrWhiteSpace(stringValue));
-            case PropertyValueLevel.Inter:
-                return null;
-            case PropertyValueLevel.Object:
-                return null;
-            default:
-                throw new NotSupportedException($"Invalid level: {level}.");
-        }
-    }
+        private readonly IJsonSerializer _jsonSerializer;
 
-    public override object? ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel cacheLevel, object? source, bool preview)
-    {
-        try
-        {
-            var sourceString = source?.ToString() ?? string.Empty;
+        public LabeledDropDownFlexibleValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
 
-            if (string.IsNullOrEmpty(sourceString))
+        public override bool IsConverter(IPublishedPropertyType propertyType)
+            => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledDropDownFlexible");
+
+        public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
+            => typeof(IEnumerable<string>);
+
+        public override PropertyCacheLevel GetPropertyCacheLevel(IPublishedPropertyType propertyType)
+            => PropertyCacheLevel.Element;
+
+        public override bool? IsValue(object? value, PropertyValueLevel level)
+        {
+            switch (level)
             {
-                return Enumerable.Empty<string>();
+                case PropertyValueLevel.Source:
+                    // the default implementation uses the old magic null & string comparisons,
+                    // other implementations may be more clever, and/or test the final converted object values
+                    return value != null && (!(value is string stringValue) || !string.IsNullOrWhiteSpace(stringValue));
+                case PropertyValueLevel.Inter:
+                    return null;
+                case PropertyValueLevel.Object:
+                    return null;
+                default:
+                    throw new NotSupportedException($"Invalid level: {level}.");
             }
+        }
 
-            var config = propertyType.DataType.Configuration.TryConvertTo<LabeledDropDownFlexibleConfiguration>();
-            if(config.Success && config.Result != null)
+        public override object? ConvertIntermediateToObject(IPublishedElement owner, IPublishedPropertyType propertyType, PropertyCacheLevel cacheLevel, object? source, bool preview)
+        {
+            try
             {
-                if (config.Result.Multiple)
+                var sourceString = source?.ToString() ?? string.Empty;
+
+                if (string.IsNullOrEmpty(sourceString))
                 {
-                    return _jsonSerializer.Deserialize<string[]>(sourceString);
+                    return Enumerable.Empty<string>();
+                }
+
+                var config = propertyType.DataType.Configuration.TryConvertTo<LabeledDropDownFlexibleConfiguration>();
+                if(config.Success && config.Result != null)
+                {
+                    if (config.Result.Multiple)
+                    {
+                        return _jsonSerializer.Deserialize<string[]>(sourceString);
+                    }
+                    else
+                    {
+                        return _jsonSerializer.Deserialize<string[]>(sourceString)?.FirstOrDefault();
+                    }
                 }
                 else
                 {
-                    return _jsonSerializer.Deserialize<string[]>(sourceString)?.FirstOrDefault();
+                    return Enumerable.Empty<string>();
                 }
             }
-            else
+            catch
             {
                 return Enumerable.Empty<string>();
             }
         }
-        catch
-        {
-            return Enumerable.Empty<string>();
-        }
     }
-}
 
+}
