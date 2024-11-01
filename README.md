@@ -1,4 +1,4 @@
-![Umbraco-UmbraVerse logo](https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/logo.png#gh-light-mode-only)
+![Umbraco-UmbraVerse logo](https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse/blob/main/docs/assets/img/logo.png)
 
 ## Umbraco-UmbraVerse
 

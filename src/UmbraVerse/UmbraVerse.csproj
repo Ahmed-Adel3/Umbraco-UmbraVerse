@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>UmbraVerse</PackageId>
+    <PackageId>Umbraco.Community.UmbraVerse</PackageId>
     <Product>UmbraVerse</Product>
     <Title>Umbraco.Community.UmbraVerse</Title>
     <Description>A collection of enhanced Umbraco property editors that support separate labels and values, providing a better user experience and more flexible data storage.</Description>
