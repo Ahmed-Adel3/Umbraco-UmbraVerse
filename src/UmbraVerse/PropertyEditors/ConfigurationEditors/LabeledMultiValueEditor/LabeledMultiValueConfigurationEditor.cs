@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
+using Umbraco.Extensions;
 
 namespace UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEditor;
 

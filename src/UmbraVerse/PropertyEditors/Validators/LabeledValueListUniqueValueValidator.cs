@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json.Linq;
 using Umbraco.Cms.Core.PropertyEditors;
+using Umbraco.Extensions;
 
 namespace UmbraVerse.PropertyEditors.Validators;
 

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbraVerse", "LabeledMultiValuePropertyEditors\UmbraVerse.csproj", "{F62F6EE6-0E62-4E45-8166-B7957E3A9164}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbraVerse.Site", "UmbraVerse.Site\UmbraVerse.Site.csproj", "{F62F6EE6-0E62-4E45-8166-B7957E3A9164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbraVerse", "UmbraVerse\UmbraVerse.csproj", "{71004A4E-008C-49BB-8B62-CC10B716EE85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{F62F6EE6-0E62-4E45-8166-B7957E3A9164}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62F6EE6-0E62-4E45-8166-B7957E3A9164}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62F6EE6-0E62-4E45-8166-B7957E3A9164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71004A4E-008C-49BB-8B62-CC10B716EE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71004A4E-008C-49BB-8B62-CC10B716EE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71004A4E-008C-49BB-8B62-CC10B716EE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71004A4E-008C-49BB-8B62-CC10B716EE85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D53C44CB-ECA7-439B-ADB3-9DE3433B7479}
 	EndGlobalSection
 EndGlobal

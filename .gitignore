@@ -3,3 +3,6 @@
 ################################################################################
 
 /src/.vs
+/src/packages
+/src/UmbraVerse/bin/Debug
+/src/UmbraVerse/obj

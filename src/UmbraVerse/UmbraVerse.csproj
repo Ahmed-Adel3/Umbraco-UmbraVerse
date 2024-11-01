@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ContentTargetFolders>.</ContentTargetFolders>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>UmbraVerse</PackageId>
+    <Product>UmbraVerse</Product>
+    <Title>UmbraVerse</Title>
+    <Description>A collection of enhanced Umbraco property editors that support separate labels and values, providing a better user experience and more flexible data storage.</Description>
+    <PackageTags>umbraco plugin package</PackageTags>
+    <Copyright>Ahmed-Adel3</Copyright>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Ahmed-Adel3</Authors>
+    <PackageProjectUrl>https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Ahmed-Adel3/Umbraco-UmbraVerse</RepositoryUrl>
+    <PackageReleaseNotes>First release with:
+1. Labeled Radio Button List
+2. Labeled Checkbox List
+3. Labeled Dropdown Flexible</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="13.5.2" />
+    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="13.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App_Plugins\UmbraVerse\**" ExcludeFromSingleFile="true" CopyToPublishDirectory="Always" />
+    <None Include="buildTransitive\**" Pack="true" PackagePath="buildTransitive" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="App_Plugins\UmbraVerse\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="..\..\LICENSE">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="C:\Users\Ahmed.Adel\Downloads\icon.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+
+    <Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
+        <ItemGroup>
+            <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+        </ItemGroup>
+    </Target>
+    
+</Project>

@@ -1,18 +1,19 @@
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Serialization;
-using UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledDropDownFlexibleEditor;
+using Umbraco.Extensions;
+using static UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEditor.LabeledMultiValueConfiguration;
 
 namespace UmbraVerse.PropertyEditors.ValueConverters;
 
-public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
+public class LabeledRadioButtonListValueConverter : PropertyValueConverterBase
 {
     private readonly IJsonSerializer _jsonSerializer;
 
-    public LabeledDropDownFlexibleValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
+    public LabeledRadioButtonListValueConverter(IJsonSerializer jsonSerializer) => _jsonSerializer = jsonSerializer;
 
     public override bool IsConverter(IPublishedPropertyType propertyType)
-        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledDropDownFlexible");
+        => propertyType.EditorAlias.InvariantEquals("UmbraVerse.PropertyEditors.LabeledRadioButtonListController");
 
     public override Type GetPropertyValueType(IPublishedPropertyType propertyType)
         => typeof(IEnumerable<string>);
@@ -48,22 +49,7 @@ public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
                 return Enumerable.Empty<string>();
             }
 
-            var config = propertyType.DataType.Configuration.TryConvertTo<LabeledDropDownFlexibleConfiguration>();
-            if(config.Success && config.Result != null)
-            {
-                if (config.Result.Multiple)
-                {
-                    return _jsonSerializer.Deserialize<string[]>(sourceString);
-                }
-                else
-                {
-                    return _jsonSerializer.Deserialize<string[]>(sourceString)?.FirstOrDefault();
-                }
-            }
-            else
-            {
-                return Enumerable.Empty<string>();
-            }
+            return _jsonSerializer.Deserialize<List<LabeledValueListItem>>(sourceString)?.Select(a => a.Value).FirstOrDefault();
         }
         catch
         {
@@ -71,4 +57,3 @@ public class LabeledDropDownFlexibleValueConverter : PropertyValueConverterBase
         }
     }
 }
-
