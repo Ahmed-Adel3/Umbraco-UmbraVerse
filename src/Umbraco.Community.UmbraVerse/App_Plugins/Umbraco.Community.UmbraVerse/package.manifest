@@ -1,0 +1,8 @@
+{
+    "javascript": [
+        "~/App_Plugins/Umbraco.Community.UmbraVerse/prevalueeditors/labeledMultivalue/labeledmultivalue.controller.js",
+        "~/App_Plugins/Umbraco.Community.UmbraVerse/propertyeditors/labeledCheckboxList/labeledcheckboxlist.controller.js",
+        "~/App_Plugins/Umbraco.Community.UmbraVerse/propertyeditors/labeledDropDownFlexible/labeleddropdownflexible.controller.js",
+        "~/App_Plugins/Umbraco.Community.UmbraVerse/propertyeditors/labeledRadioButtonList/labeledradiobuttonlist.controller.js"
+    ]
+} 

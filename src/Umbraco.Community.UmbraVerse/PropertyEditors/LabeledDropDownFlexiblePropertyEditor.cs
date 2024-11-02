@@ -19,7 +19,7 @@ namespace Umbraco.Cms.Core.PropertyEditors
     {
         internal const string PropertyAlias = "UmbraVerse.PropertyEditors.LabeledDropDownFlexible";
         internal const string DataEditorName = "Labeled DropDown Flexible";
-        internal const string DataEditorViewPath = "~/App_Plugins/UmbraVerse/propertyeditors/labeledDropDownFlexible/labeleddropdownflexible.html";
+        internal const string DataEditorViewPath = "~/App_Plugins/Umbraco.Community.UmbraVerse/propertyeditors/labeledDropDownFlexible/labeleddropdownflexible.html";
         internal const string DataEditorIcon = "icon-indent";
 
 #if NET6_0_OR_GREATER

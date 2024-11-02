@@ -7,7 +7,7 @@ namespace UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEdito
     public class LabeledMultiValueConfiguration
     {
 
-        [ConfigurationField("items", "Items", "~/App_Plugins/UmbraVerse/prevalueeditors/labeledMultivalue/labeledmultivalue.html", Description = "Write note to be shown here.")]
+        [ConfigurationField("items", "Items", "~/App_Plugins/Umbraco.Community.UmbraVerse/prevalueeditors/labeledMultivalue/labeledmultivalue.html", Description = "Enter Label and Value of each selection")]
         public List<LabeledValueListItem> Items { get; set; } = new();
 
         [DataContract]

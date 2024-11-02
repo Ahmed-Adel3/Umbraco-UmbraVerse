@@ -6,3 +6,6 @@
 /src/packages
 /src/UmbraVerse/bin/Debug
 /src/UmbraVerse/obj
+/src/UmbraVerse/bin/Release
+/src/Umbraco.Community.UmbraVerse/bin/Debug
+/src/Umbraco.Community.UmbraVerse/obj

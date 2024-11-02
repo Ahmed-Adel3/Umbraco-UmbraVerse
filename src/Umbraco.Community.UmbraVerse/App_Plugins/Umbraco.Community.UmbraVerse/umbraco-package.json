@@ -1,0 +1,6 @@
+{
+  "id": "Umbraco.Community.UmbraVerse",
+  "name": "Umbraco.Community.UmbraVerse",
+  "allowPackageTelemetry": true,
+  "extensions": []
+}

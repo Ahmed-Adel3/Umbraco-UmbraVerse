@@ -1,0 +1,21 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <UmbracoCommunityUmbraVerseContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Umbraco.Community.UmbraVerse\**\*.*</UmbracoCommunityUmbraVerseContentFilesPath>
+  </PropertyGroup>
+
+  <Target Name="CopyUmbracoCommunityUmbraVerseAssets" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <UmbracoCommunityUmbraVerseContentFiles Include="$(UmbracoCommunityUmbraVerseContentFilesPath)" />
+    </ItemGroup>
+    <Message Text="Copying Umbraco.Community.UmbraVerse files: $(UmbracoCommunityUmbraVerseContentFilesPath) - #@(UmbracoCommunityUmbraVerseContentFiles->Count()) files" Importance="high" />
+    <Copy SourceFiles="@(UmbracoCommunityUmbraVerseContentFiles)" DestinationFiles="@(UmbracoCommunityUmbraVerseContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Umbraco.Community.UmbraVerse\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="ClearUmbracoCommunityUmbraVerseAssets" BeforeTargets="Clean">
+    <ItemGroup>
+      <UmbracoCommunityUmbraVerseDir Include="$(MSBuildProjectDirectory)\App_Plugins\Umbraco.Community.UmbraVerse\" />
+    </ItemGroup>
+    <Message Text="Clear old Umbraco.Community.UmbraVerse data" Importance="high" />
+    <RemoveDir Directories="@(UmbracoCommunityUmbraVerseDir)" />
+  </Target>
+</Project>

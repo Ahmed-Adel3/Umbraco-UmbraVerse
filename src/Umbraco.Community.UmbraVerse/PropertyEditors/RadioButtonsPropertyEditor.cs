@@ -5,6 +5,10 @@ using UmbraVerse.PropertyEditors.ConfigurationEditors.LabeledMultiValueEditor;
 
 namespace UmbraVerse.PropertyEditors
 {
+    /// <summary>
+    ///     A property editor to allow the individual selection of pre-defined items.
+    /// </summary>
+
     [DataEditor(
         alias: PropertyAlias,
         name: DataEditorName,
@@ -12,52 +16,54 @@ namespace UmbraVerse.PropertyEditors
         Icon = DataEditorIcon,
         Group = "UmbraVerse",
 #if NET6_0_OR_GREATER
-        ValueEditorIsReusable = true, 
+        ValueEditorIsReusable = true,
 #endif
         ValueType = ValueTypes.String)]
-    public class LabeledCheckBoxListPropertyEditor : DataEditor
+    public class RadioButtonsPropertyEditor : DataEditor
     {
-        internal const string PropertyAlias = "UmbraVerse.PropertyEditors.LabeledCheckboxList";
-        internal const string DataEditorName = "Labeled CheckBox List";
-        internal const string DataEditorViewPath = "~/App_Plugins/UmbraVerse/propertyeditors/labeledCheckboxList/labeledcheckboxlist.html";
-        internal const string DataEditorIcon = "icon-bulleted-list";
+        internal const string PropertyAlias = "UmbraVerse.PropertyEditors.LabeledRadioButtonList";
+        internal const string DataEditorName = "Labeled Radio Button List";
+        internal const string DataEditorViewPath = "~/App_Plugins/Umbraco.Community.UmbraVerse/propertyeditors/labeledRadioButtonList/labeledradiobuttonlist.html";
+        internal const string DataEditorIcon = "icon-target";
+
+
 #if NET6_0_OR_GREATER
         private readonly IEditorConfigurationParser _editorConfigurationParser;
 #endif
         private readonly IIOHelper _ioHelper;
-        private readonly ILocalizedTextService _textService;
+        private readonly ILocalizedTextService _localizedTextService;
 
-        public LabeledCheckBoxListPropertyEditor(
+        /// <summary>
+        ///     The constructor will setup the property editor based on the attribute if one is found
+        /// </summary>
+        public RadioButtonsPropertyEditor(
             IDataValueEditorFactory dataValueEditorFactory,
-            ILocalizedTextService textService,
-            IIOHelper ioHelper
+            IIOHelper ioHelper,
+            ILocalizedTextService localizedTextService
 #if NET6_0_OR_GREATER
             , IEditorConfigurationParser editorConfigurationParser
 #endif
             )
             : base(dataValueEditorFactory)
         {
-            _textService = textService;
             _ioHelper = ioHelper;
+            _localizedTextService = localizedTextService;
 #if NET6_0_OR_GREATER
             _editorConfigurationParser = editorConfigurationParser;
             SupportsReadOnly = true;
 #endif
         }
 
-#if NET7_0_OR_GREATER
-        public override IPropertyIndexValueFactory PropertyIndexValueFactory { get; } = new NoopPropertyIndexValueFactory();
-#endif
-
 #if NET5_0
         protected override IConfigurationEditor CreateConfigurationEditor() =>
-            new LabeledMultiValueConfigurationEditor(_textService, _ioHelper);
+            new LabeledMultiValueConfigurationEditor(_localizedTextService, _ioHelper);
 #endif
 
 #if NET6_0_OR_GREATER
         /// <inheritdoc />
         protected override IConfigurationEditor CreateConfigurationEditor() =>
-            new LabeledMultiValueConfigurationEditor(_textService, _ioHelper, _editorConfigurationParser);
+            new LabeledMultiValueConfigurationEditor(_localizedTextService, _ioHelper, _editorConfigurationParser);
 #endif
     }
+
 }
