@@ -7,7 +7,7 @@ A collection of enhanced Umbraco property editors that support separate labels a
 [![Platform](https://img.shields.io/badge/Umbraco-9.0+-%233544B1?style=flat&logo=umbraco)](https://umbraco.com/products/umbraco-cms/)
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 [![Latest version](https://img.shields.io/nuget/v/Umbraco.Community.UmbraVerse)](https://marketplace.umbraco.com/package/umbraco.community.UmbraVerse) 
-[![NuGet download count](https://img.shields.io/nuget/dt/Umbraco.Community.UmbraVerse?label=downloads)](Umbraco.Community.UmbraVerse)
+[![NuGet download count](https://img.shields.io/nuget/dt/Umbraco.Community.UmbraVerse?label=downloads)(https://www.nuget.org/packages/Umbraco.Community.UmbraVerse)
 
 ## Features
 
